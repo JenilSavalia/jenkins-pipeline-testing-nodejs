@@ -5,7 +5,8 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/<your-username>/crud-app.git'
+                git 'https://github.com/JenilSavalia/jenkins-pipeline-testing-nodejs.git
+'
             }
         }
 
