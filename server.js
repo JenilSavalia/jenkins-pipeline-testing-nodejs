@@ -21,7 +21,7 @@ app.get('/items', (req, res) => {
 // UPDATE
 app.put('/items/:id', (req, res) => {
   const item = items.find(i => i.id == req.params.id);
-  if (!item) return res.status(404).send('Not found');
+  if (!item) return res.status(404).send('Not found hloo');
 
   item.name = req.body.name;
   res.json(item);
