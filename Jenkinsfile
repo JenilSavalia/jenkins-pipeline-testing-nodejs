@@ -3,33 +3,29 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
+        stage('Clone') {
             steps {
                 git 'https://github.com/JenilSavalia/jenkins-pipeline-testing-nodejs.git'
-'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Build / Run') {
+        stage('Check') {
             steps {
-                sh 'echo "Starting App..."'
-                sh 'node server.js &'
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Build Successful!'
-        }
-        failure {
-            echo 'Build Failed!'
+        stage('Run') {
+            steps {
+                sh 'nohup node server.js > app.log 2>&1 &'
+            }
         }
     }
 }
