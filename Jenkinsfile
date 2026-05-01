@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/JenilSavalia/jenkins-pipeline-testing-nodejs.git'
-            }
-        }
-
         stage('Install') {
             steps {
                 sh 'npm install'
